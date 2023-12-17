@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "50a4871c-f305-439e-b461-230377978bec",
+		"name": "Microsserviços Alura Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12426144",
+		"_collection_link": "https://solar-firefly-662170.postman.co/workspace/Webflux~93412fb5-5222-4a5f-bb93-cbcf93c735d8/collection/12426144-50a4871c-f305-439e-b461-230377978bec?action=share&source=collection_link&creator=12426144"
+	},
+	"item": [
+		{
+			"name": "Pagamentos",
+			"item": [
+				{
+					"name": "Alterar Pagamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valor\": 900,\r\n    \"nome\": \"Rodrigo\",\r\n    \"numero\": \"12345678\",\r\n    \"expiracao\": \"10/29\",\r\n    \"codigo\": \"123\",\r\n    \"pedidoId\": 1,\r\n    \"formaDePagamentoId\": 1,\r\n    \"status\": \"CRIADO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/pagamentos-ms/pagamentos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pagamentos-ms",
+								"pagamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirmar Pagamento",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/pagamentos-ms/pagamentos/2/confirmar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pagamentos-ms",
+								"pagamentos",
+								"2",
+								"confirmar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta Pagamento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/pagamentos-ms/pagamentos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pagamentos-ms",
+								"pagamentos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valor\": 500,\r\n    \"nome\": \"Jacqueline\",\r\n    \"numero\": \"12345678\",\r\n    \"expiracao\": \"10/29\",\r\n    \"codigo\": \"123\",\r\n    \"pedidoId\": 1,\r\n    \"formaDePagamentoId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/pagamentos-ms/pagamentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pagamentos-ms",
+								"pagamentos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Registra Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itens\": [\r\n    {\r\n        \"quantidade\": 10,\r\n        \"descrição\": \"Coca-cola\"\r\n    },\r\n    {\r\n        \"quantidade\": 5,\r\n        \"descrição\": \"Mc Chicken\"\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Pedido Gateway",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itens\": [\r\n    {\r\n        \"quantidade\": 10,\r\n        \"descrição\": \"Coca-cola\"\r\n    },\r\n    {\r\n        \"quantidade\": 5,\r\n        \"descrição\": \"Mc Chicken\"\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/pedidos-ms/pedidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pedidos-ms",
+								"pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registra Pedido Gateway Porta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itens\": [\r\n    {\r\n        \"quantidade\": 10,\r\n        \"descrição\": \"Coca-cola\"\r\n    },\r\n    {\r\n        \"quantidade\": 5,\r\n        \"descrição\": \"Mc Chicken\"\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/pedidos-ms/pedidos/porta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pedidos-ms",
+								"pedidos",
+								"porta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Pedido Gateway Porta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"itens\": [\r\n    {\r\n        \"quantidade\": 10,\r\n        \"descrição\": \"Coca-cola\"\r\n    },\r\n    {\r\n        \"quantidade\": 5,\r\n        \"descrição\": \"Mc Chicken\"\r\n    }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/pedidos-ms/pedidos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"pedidos-ms",
+								"pedidos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
